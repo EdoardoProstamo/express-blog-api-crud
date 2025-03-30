@@ -2,16 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-// rotta '/'
-app.get('/', (req, res) => {
-    res.send('Ciao');
-});
-
-
-
-
-
-
+const postsRouter = require('./routers/script');
+app.use("/script", postsRouter);
 
 // lancio server
 app.listen (port, () => {
