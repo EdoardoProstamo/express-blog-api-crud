@@ -6,9 +6,9 @@ const postsRouter = require('./routers/script');
 // rotta router
 app.use("/script", postsRouter);
 // asset statici
-app.use(express.static('public'));
-// json
-app.use(express.json());
+// app.use(express.static('public'));
+// // json
+// app.use(express.json());
 
 // lancio server
 app.listen (port, () => {

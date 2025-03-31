@@ -1,39 +1,54 @@
 const posts = require('../data/posts');
 
+
 function index (req, res) {
-    router.get('/', (req, res) => {
-        res.send(posts);
-    });
+    res.json(posts);
 };
 
 function show (req, res) {
-    router.get('/:id', (req, res) => {
-        res.send(posts + req.params.id);
-    });
+    const id = parseInt(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    if (!post) {
+        return res.json ({
+            error: "Not found",
+            message: "Errore. Nessun elemento corrispondente trovato" 
+        });
+    };
+    res.json(post);
 };
 
-function modify (req, res) {
-    router.patch('/:id', (req, res) => {
-        console.log(req.params.id);
-    });
-};
+// function modify (req, res) {
+//     res.send("Modifica del post");
+// };
 
 function store (req, res) {
-    router.post('/', (req, res) => {
-        res.send('Aggiunta nuovo post');
-    });
+    res.send('Aggiunta nuovo post');
 };
 
 function update (req, res) {
-    router.put('/:id', (req, res) => {
-        console.log('Modifico il post tramite id');
-    });
+    res.send("Modifica del post tramite id. Id = " + req.params.id);
 };
 
 function destroy (req, res) {
-    router.delete('/:id', (req, res) => {
-        console.log('Elimino il post tramite id');
-    });
+    const id = parseInt(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    if (!post) {
+
+        res.status(404);
+
+        return res.json ({
+            error: "Not found",
+            message: "Errore. L'elemento è stato eliminato" 
+        });
+    };
+    
+    posts.splice(posts.indexOf(post), 1);
+
+    res.sendstatus(204);
 };
 
-module.exports = { index, show, modify, store, update, destroy};
+module.exports = { index, show, store, update, destroy};

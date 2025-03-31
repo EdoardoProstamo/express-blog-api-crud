@@ -8,8 +8,8 @@ router.get('/', controllerPosts.index);
 // rotta show
 router.get('/:id', controllerPosts.show);
 
-//rotta modify
-router.patch('/:id', controllerPosts.modify);
+// //rotta modify
+// router.patch('/:id', controllerPosts.modify);
 
 //rotta store
 router.post('/', controllerPosts.store);
