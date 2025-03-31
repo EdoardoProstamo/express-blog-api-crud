@@ -3,33 +3,21 @@ const router = express.Router();
 const posts = require('../data/posts');
 
 // rotta index
-router.get('/', (req, res) => {
-    res.send(posts);
-});
+router.get('/', pizzacontroller.index);
 
 // rotta show
-router.get('/script/:id', (req, res) => {
-    res.send(posts + req.params.id);
-});
+router.get('/:id', pizzacontroller.index);
 
 //rotta modify
-router.patch('/:id', (req, res) => {
-    console.log(req.params.id);
-});
+router.patch('/:id', pizzacontroller.index);
 
 //rotta store
-router.post('/', (req, res) => {
-    res.send('Aggiunta nuovo post');
-});
+router.post('/', pizzacontroller.index);
 
 //rotta update
-router.put('/:id', (req, res) => {
-    console.log('Modifico il post tramite id');
-});
+router.put('/:id', pizzacontroller.index);
 
 //rotta destroy
-router.delete('/:id', (req, res) => {
-    console.log('Elimino il post tramite id');
-});
+router.delete('/:id', pizzacontroller.index);
 
 module.exports = router;
