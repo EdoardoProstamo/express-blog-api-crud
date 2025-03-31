@@ -1,23 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const posts = require('../data/posts');
+const controllerPosts = require('../controller/appController');
 
 // rotta index
-router.get('/', pizzacontroller.index);
+router.get('/', controllerPosts.index);
 
 // rotta show
-router.get('/:id', pizzacontroller.index);
+router.get('/:id', controllerPosts.show);
 
 //rotta modify
-router.patch('/:id', pizzacontroller.index);
+router.patch('/:id', controllerPosts.modify);
 
 //rotta store
-router.post('/', pizzacontroller.index);
+router.post('/', controllerPosts.store);
 
 //rotta update
-router.put('/:id', pizzacontroller.index);
+router.put('/:id', controllerPosts.update);
 
 //rotta destroy
-router.delete('/:id', pizzacontroller.index);
+router.delete('/:id', controllerPosts.destroy);
 
 module.exports = router;
