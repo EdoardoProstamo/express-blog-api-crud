@@ -13,13 +13,23 @@ router.get('/script/:id', (req, res) => {
 });
 
 //rotta modify
-router.patch();
+router.patch('/:id', (req, res) => {
+    console.log(req.params.id);
+});
 
 //rotta store
-router.post();
+router.post('/', (req, res) => {
+    res.send('Aggiunta nuovo post');
+});
 
 //rotta update
-router.put();
+router.put('/:id', (req, res) => {
+    console.log('Modifico il post tramite id');
+});
 
 //rotta destroy
-router.delete();
+router.delete('/:id', (req, res) => {
+    console.log('Elimino il post tramite id');
+});
+
+module.exports = router;
