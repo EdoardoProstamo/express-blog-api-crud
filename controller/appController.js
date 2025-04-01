@@ -24,7 +24,22 @@ function show (req, res) {
 // };
 
 function store (req, res) {
-    res.send('Aggiunta nuovo post');
+
+    const newId = posts[posts.length - 1].id + 1;
+    const newPost = {
+        id: newId,
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags,
+    };
+
+    console.log(newPost);
+    
+    posts.push(newPost);
+    res.status(201); // lo status 201 indica la creazione di un nuovo elemento
+
+    res.json('Aggiunta nuovo post');
 };
 
 function update (req, res) {
