@@ -58,6 +58,13 @@ function update (req, res) {
         });
     };
 
+    //Aggiornamento posts
+    posts.id = req.body.id,
+    posts.title = req.body.title;
+    posts.content = req.body.content;
+    posts.image = req.body.image;
+    posts.tags = req.body.tags;
+
     res.send(`Modifica del post tramite id ${id}`);
 };
 
