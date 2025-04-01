@@ -19,9 +19,10 @@ function show (req, res) {
     res.json(post);
 };
 
-// function modify (req, res) {
-//     res.send("Modifica del post");
-// };
+function modify (req, res) {
+    const {id} = req.params;
+    res.send(`Modifica di un post tramite id ${id}`);
+};
 
 function store (req, res) {
 
@@ -43,7 +44,8 @@ function store (req, res) {
 };
 
 function update (req, res) {
-    res.send("Modifica del post tramite id. Id = " + req.params.id);
+    const {id} = req.params;
+    res.send(`Modifica del post tramite id ${id}`);
 };
 
 function destroy (req, res) {

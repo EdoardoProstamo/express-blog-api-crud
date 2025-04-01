@@ -9,7 +9,7 @@ router.get('/', controllerPosts.index);
 router.get('/:id', controllerPosts.show);
 
 // //rotta modify
-// router.patch('/:id', controllerPosts.modify);
+router.patch('/:id', controllerPosts.modify);
 
 //rotta store
 router.post('/', controllerPosts.store);
