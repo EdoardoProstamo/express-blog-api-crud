@@ -44,7 +44,20 @@ function store (req, res) {
 };
 
 function update (req, res) {
-    const {id} = req.params;
+    const id = parseInt(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    if (!post) {
+
+        res.status(404);
+
+        return res.json ({
+            error: "Not found",
+            message: "Errore. L'elemento è stato eliminato" 
+        });
+    };
+
     res.send(`Modifica del post tramite id ${id}`);
 };
 
@@ -68,4 +81,4 @@ function destroy (req, res) {
     res.sendstatus(204);
 };
 
-module.exports = { index, show, store, update, destroy};
+module.exports = { index, show, modify, store, update, destroy};
